@@ -1,0 +1,23 @@
+{
+  "name": "events-around",
+  "version": "1.0.0",
+  "description": "Attend events around you.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeorgeCloud/events-around.git"
+  },
+  "author": "George Ceja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GeorgeCloud/events-around/issues"
+  },
+  "homepage": "https://github.com/GeorgeCloud/events-around#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.3"
+  }
+}
