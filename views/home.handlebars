@@ -1,2 +1,11 @@
-<h1>Hello World!</h1>
-{{{ message }}}
+<h1>All Events!</h1>
+
+{{#each events}}
+  <fieldset>
+    <legend>{{title}}</legend>
+    Organizor: @{{owner_username}}
+
+    <p>{{description}}</p>
+    <i>{{created_on}}</i>
+  </fieldset>
+{{/each}}
