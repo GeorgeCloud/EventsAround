@@ -1,11 +1,13 @@
 <h1>All Events!</h1>
 
 {{#each events}}
-  <fieldset>
-    <legend>{{title}}</legend>
-    Organizor: @{{owner_username}}
-
-    <p>{{description}}</p>
-    <i>{{created_on}}</i>
-  </fieldset>
+  <div class="card" style="width: 18rem;">
+    <img src="{{this.imgUrl}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{this.title}}</h5>
+      <p class="card-text">{{this.description}}</p>
+      <h6>@{{this.owner_username}}</h6>
+      <a href="#" class="btn btn-primary">View Event</a>
+    </div>
+  </div>
 {{/each}}
