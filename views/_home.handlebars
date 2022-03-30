@@ -1,0 +1,11 @@
+<div class="container">
+  <a href="/events/new">Create new event</a>
+
+  <div class="row align-items-center">
+    {{#each events}}
+      <div class="col mt-3">
+        {{> event}}
+      </div>
+    {{/each}}
+  </div>
+</div>
