@@ -17,6 +17,7 @@ app.set('view engine', 'handlebars');
 app.set("views", "./views");
 
 require('./controllers/events')(app, models)
+require('./controllers/rsvps')(app, models)
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}}!`)

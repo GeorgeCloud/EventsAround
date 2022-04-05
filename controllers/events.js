@@ -24,7 +24,9 @@ module.exports = function (app, models) {
   app.get('/events/:id', (req, res) => {
     event_id = req.params.id
     models.Event.findByPk(id=event_id).then(event => {
-      res.render('events_show', {event: event});
+      models.Rsvp.findAll({ where: { event_id: event_id } }).then(rsvps => {
+        res.render('events_show', {event: event, rsvps: rsvps});
+      })
     })
   });
 

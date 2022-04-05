@@ -1,0 +1,8 @@
+<div class="p-1 m-1 border bg-light">
+  <p>{{this.name}}</p>
+  <!-- <p>{{this.email}}</p> -->
+
+  <form action="/rsvp/{{this.id}}?_method=DELETE" method="POST">
+    <button type="submit" class="btn btn-secondary btn-sm">Unregister</button>
+  </form>
+</div>

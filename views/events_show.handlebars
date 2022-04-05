@@ -1,14 +1,51 @@
-<div class="row mt-4">
-  <div class="col-lg-6 offset-lg-3">
-    <img class="img-fluid w-100 rounded mb-3" src="{{event.image_url}}" alt="Card image cap">
-    <h5>@{{event.organization_name}}</h5>
-    <h3>{{event.title}}</h3>
+<div class="container overflow-hidden mt-4">
+  <div class="row gy-5">
+    <div class="col-6">
+      <div class="p-3 border bg-light">
+        <h2>Event</h2>
+        <div class="row mt-4">
+          <div class="col-lg-6 offset-lg-3">
+            <img class="img-fluid w-100 rounded mb-3" src="{{event.image_url}}" alt="Card image cap">
+            <h5>@{{event.organization_name}}</h5>
+            <h3>{{event.title}}</h3>
 
-    <div class="lead">{{event.description}}</div>
-    <h5>{{event.date}} {{event.time}}</h5>
+            <div class="lead">{{event.description}}</div>
+            <p>{{event.date}} {{event.time}}</p>
 
-    <form action="{{event.id}}/edit" method="GET">
-      <button type="submit">Edit</button>
-    </form>
+            <form action="{{event.id}}/edit" method="GET">
+              <button type="submit" style="width: 3rem;" class="btn btn-sm btn-primary">Edit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="p-3 border bg-light">
+        <h5>Attendees</h5>
+        {{#each rsvps}}
+          {{> recipient}}
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="p-3 border bg-light">
+        <h5>RSVP</h5>
+        <form class="" action="/rsvp" method="post">
+          <input type="hidden" name="event_id" value="{{event.id}}">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+
+          <button type="submit" class="btn btn-sm btn-success">Join Event</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- <div class="col-6">
+      <div class="p-3 border bg-light">
+        <h5 style="text-decoration: line-through;">Comments</h5>
+      </div>
+    </div> -->
   </div>
 </div>
