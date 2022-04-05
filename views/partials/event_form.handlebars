@@ -1,6 +1,6 @@
-<input class="mt-2" type="text" name="title" style="width: 100%" placeholder="Name of event" value="{{event.title}}">
-<input class="mt-2" type="text" name="organization_name" style="width: 100%" placeholder="Who is organizing this event" value="{{event.organization_name}}">
-<input class="mt-2" type="text" name="description" style="width: 100%" placeholder="A description of your event." value="{{event.description}}">
-<input class="mt-2" type="text" name="image_url" style="width: 100%" placeholder="Thumbnail URL" value="{{event.image_url}}">
-<input class="mt-2" type="date" name="date" style="width: 59%">
-<input class="mt-2" type="time" name="time" style="width: 40%">
+<input class="mt-2" type="text" name="title" style="width: 100%" placeholder="Name of event" value="{{event.title}}" required>
+<input class="mt-2" type="text" name="organization_name" style="width: 100%" placeholder="Who is organizing this event" value="{{event.organization_name}}" required>
+<input class="mt-2" type="text" name="description" style="width: 100%" placeholder="A description of your event." value="{{event.description}}" required>
+<input class="mt-2" type="text" name="image_url" style="width: 100%" placeholder="Thumbnail URL" value="{{event.image_url}}" required>
+<input class="mt-2" type="date" name="date" style="width: 59%" required>
+<input class="mt-2" type="time" name="time" style="width: 40%" required>
