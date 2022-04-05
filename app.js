@@ -9,13 +9,14 @@ const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-acce
 const port = process.env.PORT || 3000;
 const app = express();
 const models = require('./db/models')
-require('./controllers/events')(app, models)
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 
 app.engine('handlebars', exphbs.engine({ defaultLayout: 'main', handlebars: allowInsecurePrototypeAccess(Handlebars) }));
 app.set('view engine', 'handlebars');
 app.set("views", "./views");
+
+require('./controllers/events')(app, models)
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}}!`)
