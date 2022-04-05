@@ -6,7 +6,7 @@ const methodOverride = require('method-override')
 const bodyParser = require('body-parser');
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 const models = require('./db/models')
 require('./controllers/events')(app, models)
