@@ -21,13 +21,12 @@ module.exports = function (app, models) {
   })
 
   // Event Detail
-  app.get('/events/:id', (req, res) => {
+  app.get('/events/:id', async (req, res) => {
     event_id = req.params.id
-    models.Event.findByPk(id=event_id).then(event => {
-      models.Rsvp.findAll({ where: { event_id: event_id } }).then(rsvps => {
-        res.render('events_show', {event: event, rsvps: rsvps});
-      })
-    })
+    let event = await models.Event.findByPk(event_id)
+    let rsvps = await models.Rsvp.findAll({ where: { event_id: event_id } })
+
+    res.render('events_show', {event: event, rsvps: rsvps});
   });
 
   // UPDATE
