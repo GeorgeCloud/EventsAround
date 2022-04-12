@@ -5,6 +5,7 @@ const methodOverride = require('method-override')
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const jwt = require('jsonwebtoken');
+require('dotenv').config()
 
 const bodyParser = require('body-parser');
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
@@ -14,7 +15,7 @@ const app = express();
 const models = require('./db/models')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
-app.use(cookieParser('SECRET'))
+app.use(cookieParser(process.env.SESSION_SECRET))
 const expiryDate = new Date(Date.now() + 60 * 60 * 1000 * 24 * 60);
 
 Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
@@ -25,7 +26,7 @@ app.use(function authenticateToken(req, res, next) {
   const token = req.cookies.mpJWT;
 
   if (token) {
-    const user = jwt.verify(token, 'AUTH-SECRET');
+    const user = jwt.verify(token, process.env.SESSION_SECRET);
     if (user.id) {
       models.User.findByPk(user.id).then(
         (user) => {
@@ -49,7 +50,7 @@ app.set('view engine', 'handlebars');
 app.set("views", "./views");
 
 app.use(session({
-    secret: "SECRET_KEY",
+    secret: process.env.SESSION_SECRET,
     cookie: { expires: expiryDate },
     resave: false,
     saveUninitialized: true,

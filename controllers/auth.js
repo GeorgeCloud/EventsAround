@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 function generateJWT(user) {
-  const mpJWT = jwt.sign({ id: user.id }, "AUTH-SECRET", { expiresIn: 60*60*24*60 });
+  const mpJWT = jwt.sign({ id: user.id }, process.env.SESSION_SECRET, { expiresIn: 60*60*24*60 });
 
   return mpJWT
 }
