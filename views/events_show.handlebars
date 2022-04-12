@@ -12,9 +12,13 @@
             <div class="lead">{{event.description}}</div>
             <p>{{event.date}} {{event.time}}</p>
 
-            <form action="{{event.id}}/edit" method="GET">
-              <button type="submit" style="width: 3rem;" class="btn btn-sm btn-primary">Edit</button>
-            </form>
+            {{#if currentUser}}
+              {{#ifEquals event.id currentUser.id}}
+                <form action="{{event.id}}/edit" method="GET">
+                  <button type="submit" style="width: 3rem;" class="btn btn-sm btn-primary">Edit</button>
+                </form>
+              {{/ifEquals}}
+            {{/if}}
           </div>
         </div>
       </div>

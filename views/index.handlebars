@@ -1,6 +1,7 @@
 <div class="container">
-  <a href="/events/new">Create new event</a>
-
+  {{#if currentUser}}
+    <a href="/events/new">Create new event</a>
+  {{/if}}
   <p>{{title}}</p>
   <div class="row align-items-center">
     {{#each events}}

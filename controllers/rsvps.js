@@ -1,5 +1,4 @@
 module.exports = function (app, models) {
-
   app.post('/rsvp', (req, res) => {
     // req.body.EventId = req.params.eventId;
     models.Rsvp.create(req.body).then(rsvp => {
